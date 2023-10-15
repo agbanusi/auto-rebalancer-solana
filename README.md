@@ -70,3 +70,31 @@ The automatic rebalancing feature operates based on the user's predefined asset 
 - Minimized Tax Liability: The tax optimization algorithms help minimize capital gains tax liabilities, allowing users to retain more of their investment gains.
 
 The combination of Solana's speed and scalability with the Anchor framework's simplicity and security makes the automatic rebalancing feature in the Portfolio Rebalancer a powerful tool for crypto users looking to optimize their portfolios efficiently and effectively.
+
+### Why is the project built?
+
+- Efficient Asset Rebalancing: The project was built to provide users with an efficient and automated way to rebalance their investment portfolios, ensuring that their assets are allocated according to predefined targets. This helps users maintain a diversified portfolio, reducing risk and maximizing returns.
+
+- User Convenience: It aims to simplify the process of portfolio management for both novice and experienced investors. By automating the rebalancing process, users can save time and effort while achieving their financial goals.
+
+- Optimizing Asset Allocation: The auto balancer project is designed to optimize asset allocation. It ensures that users' investments are distributed in a way that aligns with their risk tolerance and long-term financial objectives, enhancing their overall portfolio performance.
+
+- Adaptation to Market Changes: With automated rebalancing, the project helps users adapt to changing market conditions. By regularly adjusting asset allocations, it keeps portfolios in line with market dynamics, reducing the need for manual intervention.
+
+### How was it built?
+
+- Technology Stack: The project was built using Solana, a high-performance blockchain platform. Smart contracts and programs were developed in the Rust programming language, leveraging the Anchor framework for Solana.
+
+- Data Structures: The system uses data structures to represent portfolios, assets, and their allocations. This includes structures for total portfolios, crypto portfolios, and transaction records.
+
+- Automated Rebalancing Logic: Automated rebalancing logic was implemented in the processor. The program calculates the differences between the current asset allocations and the target allocations. It then executes transactions to bring the portfolio back in line with the targets.
+
+- AMM Integration: To facilitate asset swaps, the project integrates with Automated Market Makers (AMMs) like the Jupiter AMM interface. This enables users to efficiently exchange assets while rebalancing their portfolios.
+
+- User Interfaces: The project may offer user interfaces, such as a web application or a user-friendly client, that allow users to monitor their portfolios, set target allocations, and initiate rebalancing actions.
+
+- Testing and Security: Rigorous testing and security audits are essential parts of the development process to ensure that users' assets and data are protected.
+
+- Documentation and User Guidance: Clear documentation and user guidance are provided to assist users in setting up and using the auto balancer effectively.
+
+- Maintenance and Updates: Regular maintenance and updates are planned to adapt to changing market conditions, add new features, and improve the user experience.
