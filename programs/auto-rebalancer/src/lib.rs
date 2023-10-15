@@ -3,7 +3,7 @@
 
 use anchor_lang::prelude::*;
 
-declare_id!("YourProgramIDHere");
+declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
 
 #[program]
 mod portfolio_program {
@@ -32,21 +32,21 @@ mod portfolio_program {
     // Entry point for adding a crypto token to the portfolio.
     pub fn add_crypto_token(ctx: Context<AddToken>, symbol: String, amount: f64) -> ProgramResult {
         // You can call the appropriate processor function here.
-        crypto_portfolio::add_token(ctx, symbol, amount)
+        crypto_portfolio::add_token(ctx, symbol, amount);
         Ok(())
     }
 
     // Entry point for removing a crypto token from the portfolio.
     pub fn remove_crypto_token(ctx: Context<RemoveToken>, symbol: String) -> ProgramResult {
         // You can call the appropriate processor function here.
-        crypto_portfolio::remove_token(ctx, symbol)
+        crypto_portfolio::remove_token(ctx, symbol);
         Ok(())
     }
 
     // Entry point for updating a crypto token's amount in the portfolio.
     pub fn update_crypto_token(ctx: Context<UpdateToken>, symbol: String, new_amount: f64) -> ProgramResult {
         // You can call the appropriate processor function here.
-        crypto_portfolio::update_token(ctx, symbol, new_amount)
+        crypto_portfolio::update_token(ctx, symbol, new_amount);
         Ok(())
     }
 
