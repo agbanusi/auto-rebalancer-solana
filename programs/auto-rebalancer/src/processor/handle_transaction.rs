@@ -8,6 +8,7 @@ use crate::models::CryptoPortfolio;
 #[program]
 mod handle_transaction {
     use super::*;
+    use crate::processor::swap::*;
 
     pub fn handle(ctx: Context<HandleTransaction>, transaction: Transaction) -> ProgramResult {
         match transaction.transaction_type {
@@ -32,7 +33,10 @@ mod handle_transaction {
         // Update portfolios, user total value, and create a transaction record
         crypto_portfolio.add_token(&token, amount);
         total_portfolio.update_crypto_value(amount);
-        user.update_total_value(-amount); // Deduct the purchase amount from the user's total value
+        user.update_total_value(amount); // Deduct the purchase amount from the user's total value
+
+        //TODO: add buy by swap function from jupiter
+        // swap.token_swap(amounta, amountb, tokena, tokenb)
 
         ctx.accounts.transaction.add_transaction(TransactionType::Buy, amount);
 
@@ -57,7 +61,9 @@ mod handle_transaction {
         // Update portfolios, user total value, and create a transaction record
         crypto_portfolio.remove_token(&token);
         total_portfolio.update_crypto_value(-amount);
-        user.update_total_value(amount); // Add the sale amount to the user's total value
+        user.update_total_value(-amount); // Add the sale amount to the user's total value
+
+        //TODO: add sell by swap function from jupiter
 
         ctx.accounts.transaction.add_transaction(TransactionType::Sell, amount);
 
