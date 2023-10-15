@@ -1,6 +1,6 @@
 
 use anchor_lang::prelude::*;
-use crate::models::{Transaction, TransactionType};
+use crate::models::{Transaction, TransactionType, UserTransaction};
 use crate::models::User;
 use crate::models::TotalPortfolio;
 use crate::models::CryptoPortfolio;
@@ -34,7 +34,7 @@ mod handle_transaction {
         total_portfolio.update_crypto_value(amount);
         user.update_total_value(-amount); // Deduct the purchase amount from the user's total value
 
-        ctx.accounts.transaction.transaction_id += 1; // Increment transaction ID
+        ctx.accounts.transaction.add_transaction(TransactionType::Buy, amount);
 
         Ok(())
     }
@@ -59,7 +59,7 @@ mod handle_transaction {
         total_portfolio.update_crypto_value(-amount);
         user.update_total_value(amount); // Add the sale amount to the user's total value
 
-        ctx.accounts.transaction.transaction_id += 1; // Increment transaction ID
+        ctx.accounts.transaction.add_transaction(TransactionType::Sell, amount);
 
         Ok(())
     }
@@ -119,7 +119,7 @@ mod handle_transaction {
         total_portfolio.update_bonds_value(bonds_value_to_buy_sell);
         total_portfolio.update_stocks_value(stocks_value_to_buy_sell);
         
-        ctx.accounts.transaction.transaction_id += 1; // Increment transaction ID
+        ctx.accounts.transaction.add_transaction(TransactionType::Rebalance, amount);
     
         Ok(())
     }
@@ -156,7 +156,7 @@ mod handle_transaction {
             portfolio.update_token(&token, adjustment);
         }
 
-        ctx.accounts.transaction.transaction_id += 1; // Increment transaction ID
+        ctx.accounts.transaction.add_transaction(TransactionType::Rebalance, amount);
     
         Ok(())
     }
